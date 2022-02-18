@@ -1,51 +1,59 @@
-//gets the h2 element so it can append the time in there
-let timeContainer = document.getElementById("display-time");
 //makes a time tag so computers can read it and also so I can change the time
-let newSpan = document.createElement("time");
+const newSpan = document.createElement("time");
 newSpan.setAttribute = ("id", "time");
+
+const timeContainer = document.getElementById("display-time");
 timeContainer.append(newSpan);
 
-//lets the variables be global
-let timeArr;
+let military = async () => {
+	let hour12 = (await hour) - 12;
+	let hourType = [hour, hour12];
+	let ampm = ["am", "pm"];
+};
+
+/** * @global *if accsesing these variables before the time function is initiated make sure to use @async/@await */
+
 let sec;
 let min;
 let hour;
+let d;
 
 //gets the time and puts it into logical form
-let time = async () => {
-	await newSpan;
+let time = () => {
 	d = new Date();
 	sec = d.getSeconds();
 	min = d.getMinutes();
 	hour = d.getHours();
 
+	let hour12 = hour - 12;
 	newSpan.innerText =
 		/* "0" + h + ":" + ("0" + m).substr(-2) + ":" + ("0" + s) */
-		hour + ":" + min + ":" + sec;
-	// convert to array
-	timeArr = [sec];
+		hour12 + ":" + min + ":" + sec;
+};
+time();
 
-	//check if time is behind
-	let s2 = d.getSeconds();
-	while (sec != s2) {
-		console.log("exede");
+const interval = 1000; // ms
+let expected = Date.now() + interval;
+setTimeout(step, interval);
+function step() {
+	var dt = Date.now() - expected; // the drift (positive for overshooting)
+	if (dt > interval) {
+		// something really bad happened. Maybe the browser (tab) was inactive?
+		// possibly special handling to avoid futile "catch up" run
+		//pause the application until the window is in focus again
+		console.log("overshoot");
 		time();
 	}
-};
+	// do what is to be done
+	time();
+	expected += interval;
+	setTimeout(step, Math.max(0, interval - dt)); // take into account drift
+}
 
-//get seconds in the DOM
-//you only need to get the last number of the DOM time.
-setInterval(time, 100);
-
-/* Tasks
-🔴 put a while loop in the function to update it
-🟢 Make a time tag to put the time in
-🟢 Comment some shit
-*/
-logo = async () => {
-	await time();
-	let domArray = Array.from(newSpan.innerText);
-	console.log(domArray);
-	return domArray
-};
-logo();
+/**
+ * @todo
+ *🟢 add a timer to the clock
+ *🟢 get dom seconds
+ *🟢 Make a time tag to put the time in
+ *🟢 Comment some shit
+ */
