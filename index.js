@@ -41,7 +41,7 @@ function step() {
 		// something really bad happened. Maybe the browser (tab) was inactive?
 		// possibly special handling to avoid futile "catch up" run
 		//pause the application until the window is in focus again
-		console.log("overshoot");
+		//console.log("overshoot");
 		time();
 	}
 	// do what is to be done
@@ -57,3 +57,4 @@ function step() {
  *🟢 Make a time tag to put the time in
  *🟢 Comment some shit
  */
+console.log("hi")
