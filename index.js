@@ -57,4 +57,3 @@ function step() {
  *🟢 Make a time tag to put the time in
  *🟢 Comment some shit
  */
-console.log("hi")
