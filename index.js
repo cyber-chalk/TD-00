@@ -6,8 +6,12 @@ const timeContainer = document.getElementById("display-time");
 timeContainer.append(newSpan);
 
 let military = async () => {
-	let hour12 = (await hour) - 12;
-	let hourType = [hour, hour12];
+	await hour;
+	if (hour >= 12) {
+		let hourHold;
+		hour -= 12;
+	}
+
 	let ampm = ["am", "pm"];
 };
 
@@ -25,10 +29,11 @@ let time = () => {
 	min = d.getMinutes();
 	hour = d.getHours();
 
-	let hour12 = hour - 12;
+	hourHold = [...hour];
+	//militarty();
 	newSpan.innerText =
 		/* "0" + h + ":" + ("0" + m).substr(-2) + ":" + ("0" + s) */
-		hour12 + ":" + min + ":" + sec;
+		hourHold + ":" + min + ":" + sec;
 };
 time();
 
