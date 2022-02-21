@@ -12,9 +12,12 @@ newSpan.setAttribute = ("id", "time");
 const timeContainer = document.getElementById("display-time");
 timeContainer.append(newSpan);
 
-const military = () => {
+const military = (switch12) => {
 	if (hour > 12) {
 		x = 12;
+	}
+	if (switch12) {
+		x -= 12;
 	}
 };
 
@@ -22,6 +25,12 @@ let i = 1;
 const toggle = () => {
 	i++;
 	if ((i % 2 === 0) === false) {
+		if (i > 2) {
+			const revert = true;
+			//call military with a argument
+			military(revert);
+		}
+
 		console.log("false", i);
 		return;
 	}
@@ -31,7 +40,6 @@ const toggle = () => {
 
 /** time @generator*/
 
-military();
 let time = () => {
 	d = new Date();
 	sec = d.getSeconds();

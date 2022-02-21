@@ -14,5 +14,5 @@ vscode.dev
 </a>
 
 
-## credits
+## credits 📃
 #### if you contribute to the project in any way you will be added to the list below
