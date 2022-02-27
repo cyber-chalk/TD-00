@@ -56,31 +56,12 @@ time();
 const interval = 1000; // ms
 let expected = Date.now() + interval;
 setTimeout(step, interval);
-async function step() {
+function step() {
 	var dt = Date.now() - expected; // the drift (positive for overshooting)
+	//error handler
 	if (dt > interval) {
-		let stopTimeout;
-		if (document.visibilityState == "visible") {
-			time();
-		}
-		function wait() {
-			if (document.visibilityState == "hidden") {
-				document.visibilityState;
-				stopTimeout = true;
-				let n = 0;
-				n++;
-				console.log(n);
-			} else if (document.visibilityState == "visible") {
-				stopTimeout = false;
-				time();
-			}
-		}
-		wait();
-		if (stopTimeout) {
-			setInterval(wait, 1000);
-		}
-		expected += interval;
-		setTimeout(step, Math.max(0, interval - dt));
+		dt = -1000; //may also need to change it back to 0
+		console.log("overshoot");
 	}
 	// do what is to be done
 	time();
@@ -95,5 +76,3 @@ async function step() {
  *🟢 Make a time tag to put the time in
  *🟢 Comment some shit
  */
-// this is an error handler
-//pause the application until the window is in focus again
