@@ -4,6 +4,7 @@ let sec;
 let min;
 let hour;
 let d;
+let trueORfalse;
 
 //makes a time tag so computers can read it and also so I can change the time
 const newSpan = document.createElement("time");
@@ -15,9 +16,11 @@ timeContainer.append(newSpan);
 const military = (switch12) => {
 	if (hour > 12) {
 		x = 12;
+		time(); // this is to make sure it happens as soon as possible and not have a slight delay
 	}
 	if (switch12) {
 		x -= 12;
+		time(); //see comment above
 	}
 };
 
@@ -31,10 +34,12 @@ const toggle = () => {
 			military(revert);
 		}
 
-		console.log("false", i);
+		console.log("false/off", i);
+		trueORfalse = false;
 		return;
 	}
-	console.log("true", i);
+	console.log("true/on", i);
+	trueORfalse = true;
 	military();
 };
 
@@ -60,7 +65,7 @@ function step() {
 	var dt = Date.now() - expected; // the drift (positive for overshooting)
 	//error handler
 	if (dt > interval) {
-		dt = -1000; //may also need to change it back to 0
+		dt = 1000; //may also need to change it back to 0
 		console.log("overshoot");
 	}
 	// do what is to be done
