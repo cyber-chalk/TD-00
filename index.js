@@ -71,6 +71,7 @@ function step() {
 	//error handler
 	if (dt > interval) {
 		alt = 500; //may also need to change it back to 0
+		time()
 		console.log("overshoot");
 	}
 	// do what needs to be done
