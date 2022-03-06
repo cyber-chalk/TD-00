@@ -1,41 +1,40 @@
 /** * @global *if accsesing these variables before the time function is initiated make sure to use @async/@await */
 let x = 0;
-let sec;
-let min;
 let hour;
-let d;
 let toggleOff;
 let currentHour;
-let alt;
+let timeStr;
+let timeInput; // this is equal to the value of the input, see index.html for more info
 
-const newSpan = document.createElement("time");
+const newSpan = document.createElement("time"); //creates the element which the time is in
 newSpan.setAttribute = ("id", "time");
-
 const timeContainer = document.getElementById("display-time");
 timeContainer.append(newSpan);
 
+function checkInput() {
+	if (timeInput == timeStr) {
+		alert("times up");
+		return (timeInput = "");
+	}
+}
+
 const military = (switch12) => {
 	if (hour >= 13) {
-		//13
 		x += 12;
-		time(); // this is to make sure it happens as soon as possible and not have a slight delay
 	} else if (switch12) {
 		x -= 12;
-		time(); //see comment above
 	}
+	time(); // this is to make sure it happens as soon as possible and not have a slight delay
 };
 
 let i = 1;
-const toggle = async () => {
+const toggle = () => {
 	i++;
-	await toggleOff;
-
 	if (toggleOff == true) return; //if hour is less than 12 or is equal to 12 or 24
 
 	if ((i % 2 === 0) === false) {
 		if (i > 2) {
 			const revert = true;
-			//call military with a argument
 			military(revert);
 		}
 		console.log("false/off", i);
@@ -45,40 +44,44 @@ const toggle = async () => {
 	military();
 };
 
-let time = () => {
-	d = new Date();
-	sec = d.getSeconds();
-	min = d.getMinutes();
-	currentHour == d.getHours(); //may need to use this later
+function time() {
+	let d = new Date();
+	let sec = d.getSeconds();
+	let min = d.getMinutes();
+	currentHour = d.getHours(); // uneffected by 12 mode
 	hour = d.getHours() - x;
-
+	timeStr = currentHour + ":" + ("0" + min).slice(-2);
 	newSpan.innerText =
 		/* "0" + h + ":" + ("0" + m).substr(-2) + ":" + ("0" + s) */
 		hour + ":" + min + ":" + sec;
-};
+}
 time();
 
-if (hour <= 11) {
-	//checks if you can go into 12 hour mode
-	toggleOff = true;
+function check(_hour) {
+	if (_hour <= 11) {
+		//checks if you can go into 12 hour mode
+		toggleOff = true;
+		return;
+	}
+	if (_hour >= 13) {
+		toggleOff = false;
+	}
 }
-
+var dt;
 const interval = 1000; // ms
 let expected = Date.now() + interval;
 setTimeout(step, interval);
 function step() {
-	var dt = Date.now() - expected; // the drift (positive for overshooting)
+	let alt = 1000;
+	dt = Date.now() - expected; // the drift (positive for overshooting)
 	//error handler
 	if (dt > interval) {
-		alt = 500; //may also need to change it back to 0
-		time()
-		console.log("overshoot");
+		alt -= dt;
 	}
 	// do what needs to be done
-	if (hour >= 13) {
-		toggleOff = false;
-	}
+	check(currentHour);
 	time();
+	checkInput();
 	expected += interval;
 	setTimeout(step, Math.max(0, interval - dt, alt)); // take into account drift
 }

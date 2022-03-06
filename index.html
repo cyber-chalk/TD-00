@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<script src="./index.js" defer></script>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,6 +10,13 @@
 	<body>
 		<h2 id="display-time"></h2>
 		<button onclick="toggle()">12 hour time</button>
+		<br />
+		<!-- we won't include dates atm because you will be inputing for the specific day ie. tuesday -->
+		<input
+			type="time"
+			name="time-input"
+			id="time-input"
+			oninput="timeInput = value"
+		/>
 	</body>
-	<script src="./index.js" defer></script>
 </html>
