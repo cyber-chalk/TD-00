@@ -13,9 +13,17 @@ timeContainer.append(newSpan);
 
 function checkInput() {
 	if (timeInput == timeStr) {
-		alert("times up");
-		return (timeInput = "");
+		timeInput = "";
+		return alert("times up");
 	}
+}
+
+function create(event) {
+	let nodeClone = document.getElementById(event);
+	let container = nodeClone.parentElement;
+	const newInput = nodeClone.cloneNode();
+	container.append(newInput);
+	console.log(container);
 }
 
 const military = (switch12) => {
@@ -59,8 +67,7 @@ time();
 
 function check(_hour) {
 	if (_hour <= 11) {
-		//checks if you can go into 12 hour mode
-		toggleOff = true;
+		toggleOff = true; //checks if you can go into 12 hour mode
 		return;
 	}
 	if (_hour >= 13) {

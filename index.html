@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<link rel="stylesheet" href="./style.css" />
 		<script src="./index.js" defer></script>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,8 +16,77 @@
 		<input
 			type="time"
 			name="time-input"
-			id="time-input"
+			class="time-input"
 			oninput="timeInput = value"
 		/>
+
+		<!-- start the actuall ui -->
+		<div>
+			<div id="monday" class="box">
+				<h2>Monday</h2>
+				<input
+					id="1"
+					type="time"
+					name="time-input"
+					class="time-input"
+					oninput="timeInput = value"
+				/>
+				<button onclick="create(1)"></button>
+			</div>
+<!-- 
+			<div id="tuesday" class="box">
+				<input
+					type="time"
+					name="time-input"
+					class="time-input"
+					oninput="timeInput = value"
+				/>
+			</div>
+
+			<div id="wednesday" class="box">
+				<input
+					type="time"
+					name="time-input"
+					class="time-input"
+					oninput="timeInput = value"
+				/>
+			</div>
+
+			<div id="thursday" class="box">
+				<input
+					type="time"
+					name="time-input"
+					class="time-input"
+					oninput="timeInput = value"
+				/>
+			</div>
+
+			<div id="friday" class="box">
+				<input
+					type="time"
+					name="time-input"
+					class="time-input"
+					oninput="timeInput = value"
+				/>
+			</div>
+
+			<div id="saturday" class="box">
+				<input
+					type="time"
+					name="time-input"
+					class="time-input"
+					oninput="timeInput = value"
+				/>
+			</div>
+
+			<div id="sunday" class="box">
+				<input
+					type="time"
+					name="time-input"
+					class="time-input"
+					oninput="timeInput = value"
+				/> -->
+			</div>
+		</div>
 	</body>
 </html>

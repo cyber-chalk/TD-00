@@ -1,0 +1,44 @@
+:root {
+    --bodycolour: white;
+    --backgroundcolor: white; 
+    --closedbackground: rgb(38, 42, 78);
+    --boxhight: 5em; 
+    --textcolour: rgb(148, 148, 148);
+
+    }
+
+body {
+    background-color: var(--bodycolour);
+}
+
+.box {
+    margin: 2em;
+    color: var(--textcolour);
+    border: black, 1.5em;
+    display: flex;
+    justify-content: center;
+
+}
+#monday {
+    background-color: var(--closedbackground);
+ 
+
+}
+#tuesday {
+    background-color: var(--closedbackground);
+}
+#wednesday {
+    background-color: var(--closedbackground);
+}
+#thursday {
+    background-color: var(--closedbackground);
+}
+#friday {
+    background-color: var(--closedbackground);
+}
+#saturday {
+    background-color: var(--closedbackground);
+}
+#sunday {
+    background-color: var(--closedbackground);
+}
