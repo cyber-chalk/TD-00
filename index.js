@@ -22,6 +22,7 @@ function create(event) {
 	let nodeClone = document.getElementById(event);
 	let container = nodeClone.parentElement;
 	const newInput = nodeClone.cloneNode();
+	newInput.value = "";
 	container.append(newInput);
 	console.log(container);
 }
@@ -81,9 +82,9 @@ setTimeout(step, interval);
 function step() {
 	let alt = 1000;
 	dt = Date.now() - expected; // the drift (positive for overshooting)
-	//error handler
+
 	if (dt > interval) {
-		alt -= dt;
+		alt -= dt; //error handler
 	}
 	// do what needs to be done
 	check(currentHour);
