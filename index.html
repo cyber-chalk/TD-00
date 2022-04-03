@@ -12,80 +12,30 @@
 		<h2 id="display-time"></h2>
 		<button onclick="toggle()">12 hour time</button>
 		<br />
-		<!-- we won't include dates atm because you will be inputing for the specific day ie. tuesday -->
 		<input
+			id="0"
 			type="time"
 			name="time-input"
 			class="time-input"
-			oninput="timeInput = value"
+			oninput="new timer(value, this.id)"
 		/>
 
 		<!-- start the actuall ui -->
 		<div>
 			<div id="monday" class="box">
 				<h2>Monday</h2>
-				<input
-					id="1"
-					type="time"
-					name="time-input"
-					class="time-input"
-					oninput="timeInput = value"
-				/>
-				<button onclick="create(1)"></button>
-			</div>
-<!-- 
-			<div id="tuesday" class="box">
-				<input
-					type="time"
-					name="time-input"
-					class="time-input"
-					oninput="timeInput = value"
-				/>
-			</div>
-
-			<div id="wednesday" class="box">
-				<input
-					type="time"
-					name="time-input"
-					class="time-input"
-					oninput="timeInput = value"
-				/>
-			</div>
-
-			<div id="thursday" class="box">
-				<input
-					type="time"
-					name="time-input"
-					class="time-input"
-					oninput="timeInput = value"
-				/>
-			</div>
-
-			<div id="friday" class="box">
-				<input
-					type="time"
-					name="time-input"
-					class="time-input"
-					oninput="timeInput = value"
-				/>
-			</div>
-
-			<div id="saturday" class="box">
-				<input
-					type="time"
-					name="time-input"
-					class="time-input"
-					oninput="timeInput = value"
-				/>
-			</div>
-
-			<div id="sunday" class="box">
-				<input
-					type="time"
-					name="time-input"
-					class="time-input"
-					oninput="timeInput = value"
-				/> -->
+				<span id="span">
+					<input
+						id="1"
+						type="time"
+						name="time-input"
+						class="time-input"
+						oninput="new timer(value, this.id)"
+					/>
+				</span>
+				<button onclick="create(value, this.parentElement)">
+					add new
+				</button>
 			</div>
 		</div>
 	</body>

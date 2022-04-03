@@ -1,30 +1,39 @@
-/** * @global *if accsesing these variables before the time function is initiated make sure to use @async/@await */
+/** * @global *if accsesing these variables before its related function is initiated make sure to use @async/@await */
 let x = 0;
 let hour;
 let toggleOff;
 let currentHour;
 let timeStr;
-let timeInput; // this is equal to the value of the input, see index.html for more info
+let checkObj = {};
+let n = 2;
 
 const newSpan = document.createElement("time"); //creates the element which the time is in
 newSpan.setAttribute = ("id", "time");
 const timeContainer = document.getElementById("display-time");
 timeContainer.append(newSpan);
 
-function checkInput() {
-	if (timeInput == timeStr) {
-		timeInput = "";
-		return alert("times up");
+class timer {
+	constructor(input, id) {
+		this.input = input;
+		this.id = id;
+		checkObj[this.id] = this;
+		this.checkInput();
+	}
+	checkInput() {
+		if (this.input == timeStr) {
+			this.input = "";
+			return alert("times up");
+		}
 	}
 }
 
-function create(event) {
-	let nodeClone = document.getElementById(event);
-	let container = nodeClone.parentElement;
-	const newInput = nodeClone.cloneNode();
-	newInput.value = "";
-	container.append(newInput);
-	console.log(container);
+function create(event, parentElement, that) {
+	let origin = parentElement.querySelector("input");
+	let nodeClone = origin.cloneNode();
+	nodeClone.id = n++;
+	nodeClone.value = "";
+	let newOrigin = document.getElementById("span");
+	newOrigin.appendChild(nodeClone);
 }
 
 const military = (switch12) => {
@@ -59,7 +68,7 @@ function time() {
 	let min = d.getMinutes();
 	currentHour = d.getHours(); // uneffected by 12 mode
 	hour = d.getHours() - x;
-	timeStr = currentHour + ":" + ("0" + min).slice(-2);
+	timeStr = ("0" + currentHour).slice(-2) + ":" + ("0" + min).slice(-2);
 	newSpan.innerText =
 		/* "0" + h + ":" + ("0" + m).substr(-2) + ":" + ("0" + s) */
 		hour + ":" + min + ":" + sec;
@@ -75,6 +84,7 @@ function check(_hour) {
 		toggleOff = false;
 	}
 }
+
 var dt;
 const interval = 1000; // ms
 let expected = Date.now() + interval;
@@ -89,7 +99,8 @@ function step() {
 	// do what needs to be done
 	check(currentHour);
 	time();
-	checkInput();
+	for (let property in checkObj) checkObj[property].checkInput();
+
 	expected += interval;
 	setTimeout(step, Math.max(0, interval - dt, alt)); // take into account drift
 }
