@@ -24,6 +24,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: stretch;
+    flex-wrap: wrap;
 
 
 }
@@ -31,8 +32,7 @@ body {
 #monday {
     background-color: var(--closedbackground);
  }
-/* 
-}
+
 #tuesday {
     background-color: var(--closedbackground);
 }
@@ -51,4 +51,4 @@ body {
 #sunday {
     background-color: var(--closedbackground);
 }
- */
+ 

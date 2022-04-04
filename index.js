@@ -27,13 +27,13 @@ class timer {
 	}
 }
 
-function create(event, parentElement, that) {
+function create(event, parentElement) {
 	let origin = parentElement.querySelector("input");
+	let container = parentElement.querySelector("span");
 	let nodeClone = origin.cloneNode();
 	nodeClone.id = n++;
 	nodeClone.value = "";
-	let newOrigin = document.getElementById("span");
-	newOrigin.appendChild(nodeClone);
+	container.append(nodeClone);
 }
 
 const military = (switch12) => {
