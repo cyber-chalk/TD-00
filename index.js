@@ -5,7 +5,9 @@ let toggleOff;
 let currentHour;
 let timeStr;
 let checkObj = {};
-let n = 2;
+let n = 8;
+let currentDay;
+let i = 1;
 
 const newSpan = document.createElement("time"); //creates the element which the time is in
 newSpan.setAttribute = ("id", "time");
@@ -27,7 +29,7 @@ class timer {
 	}
 }
 
-function create(event, parentElement) {
+function create(event, parentElement, csl) {
 	let origin = parentElement.querySelector("input");
 	let container = parentElement.querySelector("span");
 	let nodeClone = origin.cloneNode();
@@ -45,7 +47,6 @@ const military = (switch12) => {
 	time(); // this is to make sure it happens as soon as possible and not have a slight delay
 };
 
-let i = 1;
 const toggle = () => {
 	i++;
 	if (toggleOff == true) return; //if hour is less than 12 or is equal to 12 or 24
@@ -66,23 +67,37 @@ function time() {
 	let d = new Date();
 	let sec = d.getSeconds();
 	let min = d.getMinutes();
-	currentHour = d.getHours(); // uneffected by 12 mode
+	currentHour = d.getHours(); // uneffected by 12 hour mode
 	hour = d.getHours() - x;
+	currentDay = d.getDay();
 	timeStr = ("0" + currentHour).slice(-2) + ":" + ("0" + min).slice(-2);
+	check(currentHour, min);
 	newSpan.innerText =
 		/* "0" + h + ":" + ("0" + m).substr(-2) + ":" + ("0" + s) */
 		hour + ":" + min + ":" + sec;
 }
 time();
 
-function check(_hour) {
-	if (_hour <= 11) {
-		toggleOff = true; //checks if you can go into 12 hour mode
-		return;
+function findDay() {
+	var days = document.getElementsByClassName("time-input");
+	let dayArr = []; // array from the variable days. This is because it is a htmlcollection.
+
+	for (let l = 0; l < days.length; l++) dayArr.push(days[l]);
+
+	for (let j = 0; j < dayArr.length; j++) {
+		if (dayArr[j].id != currentDay) {
+			let deleted = dayArr[j].dataset.theDay;
+			let element = document.getElementById(deleted);
+			element?.remove();
+		}
 	}
-	if (_hour >= 13) {
-		toggleOff = false;
-	}
+}
+findDay();
+
+function check(_hour, _min) {
+	if (_hour <= 11) toggleOff = true; //checks if you can go into 12 hour mode
+	if (_hour >= 13) toggleOff = false;
+	if (_hour == 0 && _min == 0) findDay();
 }
 
 var dt;
@@ -97,8 +112,7 @@ function step() {
 		alt -= dt; //error handler
 	}
 	// do what needs to be done
-	check(currentHour);
-	time();
+	time(); //might need to move check() back above time()
 	for (let property in checkObj) checkObj[property].checkInput();
 
 	expected += interval;
