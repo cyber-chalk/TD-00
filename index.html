@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
 		<link rel="stylesheet" href="./style.css" />
 		<script src="./index.js" defer></script>
 		<meta charset="UTF-8" />
@@ -9,18 +13,30 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<h2 id="display-time"></h2>
-		<button onclick="toggle()">12 hour time</button>
-		<br />
-		<!-- 	<input
-			id="0"
-			type="time"
-			name="time-input"
-			class="time-input"
-			oninput="new timer(value, this.id)"
-		/> -->
+		<div class="top">
+			<div class="nav-container">
+				<div id="nav-left">
+					<p>left</p>
+				</div>
+				<div class="nav">
+					<p>&#x3c; nav &#x3e;</p>
+				</div>
+				<div id="nav-right">
+					<p>right</p>
+					<!-- <span class="material-icons settings settings"> settings </span> -->
+				</div>
+			</div>
 
-		<!-- start the actuall ui -->
+			<span class="left-right">
+				<span id="left"><p>L</p></span>
+				<span id="right"><p>R</p></span>
+			</span>
+			<h2 id="display-time"></h2>
+			<span class="control">
+				<button id="btn" onclick="toggle()">12 hour time</button>
+			</span>
+			<br />
+		</div>
 		<div>
 			<div id="monday" class="box">
 				<h2>Monday</h2>

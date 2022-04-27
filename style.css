@@ -1,17 +1,133 @@
 :root {
     --bodycolour: white;
-    --backgroundcolor: white; 
+    --backgroundcolor: white;
     --closedbackground: rgb(38, 42, 78);
-    --boxhight: 5em; 
+    --boxhight: 5em;
     --textcolour: rgb(148, 148, 148);
 
-    }
+}
 
 body {
     background-color: var(--bodycolour);
 }
 
+.nav-container {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav {
+    /* the nav hover thing that is visible */
+    display: flex;
+    background-color: hsl(210, 14%, 53%);
+    justify-content: center;
+    width: 15vw;
+}
+
+#nav-right,
+#nav-left {
+    display: none;
+    background-color: hsla(210, 14%, 53%, 0.593);
+    justify-content: center;
+    width: 5vw;
+    animation-duration: 0.65s;
+    animation-fill-mode: forwards
+        /*   animation-iteration-count: 1; */
+}
+
+#nav-left {
+    animation-name: nav-anim-left;
+}
+
+#nav-right {
+    animation-name: nav-anim-right;
+
+}
+
+
+
+
+@keyframes nav-anim-left {
+    0% {
+        opacity: 0;
+        color: rgba(0, 0, 0, 0);
+        transform: translateX(5vw);
+    }
+
+    65% {
+        color: rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+
+    }
+}
+
+@keyframes nav-anim-right {
+    0% {
+        opacity: 0;
+        color: rgba(0, 0, 0, 0);
+        transform: translateX(-5vw);
+    }
+
+    65% {
+        color: rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+.nav-container:hover #nav-right {
+    opacity: 0;
+    display: flex;
+}
+
+.nav-container:hover #nav-left {
+
+    display: flex;
+}
+
+.control,
+.left-right,
+#display-time {
+    /* centers things in the middle */
+    display: flex;
+    justify-content: center;
+}
+
+.settings {
+    /* the settings icon appears a few px higher without any styling */
+    margin-left: 0.5em
+}
+
+
+/* buttons for changing days */
+#left {
+
+    position: relative;
+    /* use top and left to ajust */
+    align-content: flex-start;
+    justify-content: flex-start;
+    margin-right: auto;
+}
+
+#right {
+    position: relative;
+    align-content: flex-end;
+    justify-content: flex-end;
+    margin-left: auto
+}
+
+
 .box {
+    /* holds the div for the day */
+    background-color: var(--closedbackground);
     margin: 2em;
     color: var(--textcolour);
     border: black, 1.5em;
@@ -21,34 +137,9 @@ body {
 }
 
 .span {
+    /* the div for the time */
     display: flex;
     justify-content: center;
     align-items: stretch;
     flex-wrap: wrap;
-
-
 }
-
-#monday {
-    background-color: var(--closedbackground);
- }
-
-#tuesday {
-    background-color: var(--closedbackground);
-}
-#wednesday {
-    background-color: var(--closedbackground);
-}
-#thursday {
-    background-color: var(--closedbackground);
-}
-#friday {
-    background-color: var(--closedbackground);
-}
-#saturday {
-    background-color: var(--closedbackground);
-}
-#sunday {
-    background-color: var(--closedbackground);
-}
- 

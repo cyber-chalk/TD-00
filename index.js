@@ -56,10 +56,8 @@ const toggle = () => {
 			const revert = true;
 			military(revert);
 		}
-		console.log("false/off", i);
 		return;
 	}
-	console.log("true/on", i);
 	military();
 };
 
