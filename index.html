@@ -5,6 +5,18 @@
 			href="https://fonts.googleapis.com/icon?family=Material+Icons"
 			rel="stylesheet"
 		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Open+Sans:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap"
+			rel="stylesheet"
+		/>
 		<link rel="stylesheet" href="./style.css" />
 		<script src="./index.js" defer></script>
 		<meta charset="UTF-8" />
@@ -18,8 +30,10 @@
 				<div id="nav-left">
 					<p>left</p>
 				</div>
-				<div class="nav">
-					<p>&#x3c; nav &#x3e;</p>
+				<div class="nav" style="display: inline-flex;">
+					<p id="nav-text">TD</p>
+					<p id="nav-colon">:</p>
+					<p id="nav-numbers">00</p>
 				</div>
 				<div id="nav-right">
 					<p>right</p>
@@ -27,13 +41,16 @@
 				</div>
 			</div>
 
+			<!-- used to switch days -->
 			<span class="left-right">
-				<span id="left"><p>L</p></span>
-				<span id="right"><p>R</p></span>
+				<span class="material-icons" id="left"> chevron_left </span>
+
+				<span class="material-icons" id="right"> chevron_right </span>
 			</span>
+
 			<h2 id="display-time"></h2>
 			<span class="control">
-				<button id="btn" onclick="toggle()">12 hour time</button>
+				<button class="btn" onclick="toggle()">12 hour time</button>
 			</span>
 			<br />
 		</div>
@@ -125,6 +142,7 @@
 
 			<div id="saturday" class="box">
 				<h2>saturday</h2>
+
 				<span class="span">
 					<input
 						id="6"

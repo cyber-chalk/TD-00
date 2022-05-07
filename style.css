@@ -1,10 +1,6 @@
 :root {
-    --bodycolour: white;
-    --backgroundcolor: white;
-    --closedbackground: rgb(38, 42, 78);
-    --boxhight: 5em;
-    --textcolour: rgb(148, 148, 148);
-
+    --bodycolour: rgb(245, 245, 245);
+    --backgroundcolor: rgb(245, 245, 245);
 }
 
 body {
@@ -20,21 +16,55 @@ body {
 
 .nav {
     /* the nav hover thing that is visible */
+    line-height: 0;
     display: flex;
-    background-color: hsl(210, 14%, 53%);
+    font-family: IBM Plex Mono;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: var(--bodycolour);
     justify-content: center;
     width: 15vw;
+    border-style: solid;
+    border-width: 0.4em;
+    border-color: #64c247;
+    border-radius: 0.2em;
+
 }
+
+/* TD */
+#nav-text {
+
+    color: hsl(0, 0%, 77%)
+}
+
+/* : */
+#nav-colon {
+    color: #32373b;
+
+}
+
+/* 00 */
+#nav-numbers {
+    color: #64c247;
+
+}
+
+
+
 
 #nav-right,
 #nav-left {
+    cursor: pointer;
+    font-family: open sans, sans-serif;
     display: none;
-    background-color: hsla(210, 14%, 53%, 0.593);
+    border-radius: 0.2em;
+    background-color: #64c247;
     justify-content: center;
     width: 5vw;
-    animation-duration: 0.65s;
-    animation-fill-mode: forwards
-        /*   animation-iteration-count: 1; */
+    align-items: center;
+    animation-duration: 0.60s;
+    animation-fill-mode: forwards;
+
 }
 
 #nav-left {
@@ -51,6 +81,7 @@ body {
 
 @keyframes nav-anim-left {
     0% {
+
         opacity: 0;
         color: rgba(0, 0, 0, 0);
         transform: translateX(5vw);
@@ -61,6 +92,7 @@ body {
     }
 
     100% {
+
         opacity: 1;
 
     }
@@ -89,8 +121,8 @@ body {
 }
 
 .nav-container:hover #nav-left {
-
     display: flex;
+
 }
 
 .control,
@@ -101,15 +133,13 @@ body {
     justify-content: center;
 }
 
-.settings {
-    /* the settings icon appears a few px higher without any styling */
-    margin-left: 0.5em
-}
+
 
 
 /* buttons for changing days */
 #left {
-
+    color: #32373b;
+    cursor: pointer;
     position: relative;
     /* use top and left to ajust */
     align-content: flex-start;
@@ -118,28 +148,50 @@ body {
 }
 
 #right {
+    color: #32373b;
+    cursor: pointer;
     position: relative;
     align-content: flex-end;
     justify-content: flex-end;
     margin-left: auto
 }
 
+#display-time {
+    font-family: IBM Plex Mono, sans;
+    color: #42484d;
+    font-weight: 400;
+}
+
+.btn {
+    background-color: #64c247;
+    border-style: none;
+    font-family: open sans;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    color: #32373b;
+    padding: 0.5em 1em 0.5em 1em;
+}
+
 
 .box {
     /* holds the div for the day */
-    background-color: var(--closedbackground);
-    margin: 2em;
-    color: var(--textcolour);
-    border: black, 1.5em;
     display: flex;
     justify-content: center;
+    box-shadow: -10px 12px 14px 0px #64c247;
+
+    font-family: open sans, sans-serif;
+    background-color: white;
+    margin: 2em;
+    padding: 0.5em 1em 0.5em 1em;
+    color: #2f3337;
+    border-radius: 1em;
 
 }
 
 .span {
-    /* the div for the time */
+    /* the div for the time input */
     display: flex;
     justify-content: center;
-    align-items: stretch;
     flex-wrap: wrap;
 }
