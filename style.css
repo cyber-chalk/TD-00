@@ -165,6 +165,8 @@ body {
 .btn {
     background-color: #64c247;
     border-style: none;
+    border-radius: 0.3em;
+    /* try to keep border radius at 1em or 0.2em */
     font-family: open sans;
     font-size: 1em;
     font-weight: 600;
@@ -176,10 +178,10 @@ body {
 
 .box {
     /* holds the div for the day */
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     box-shadow: -10px 12px 14px 0px #64c247;
-
+    flex-direction: column;
     font-family: open sans, sans-serif;
     background-color: white;
     margin: 2em;
@@ -189,7 +191,19 @@ body {
 
 }
 
-.span {
+.box:first-child h2 {
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+
+}
+
+.center-inputs {
+    display: flex;
+    justify-content: center
+}
+
+.timer-container {
     /* the div for the time input */
     display: flex;
     justify-content: center;

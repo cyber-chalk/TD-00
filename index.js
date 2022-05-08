@@ -29,12 +29,14 @@ class timer {
 	}
 }
 
-function create(event, parentElement, csl) {
-	let origin = parentElement.querySelector("input");
-	let container = parentElement.querySelector("span");
+function create(theParent) {
+	let origin = theParent.querySelector('input[type="time"]');
+	let container = theParent.querySelector(".timer-container"); //container appending it into
+	console.log(origin, container, theParent);
 	let nodeClone = origin.cloneNode();
 	nodeClone.id = n++;
-	nodeClone.value = "";
+	//nodeClone.value = "";
+
 	container.append(nodeClone);
 }
 
@@ -81,10 +83,9 @@ function findDay() {
 	let dayArr = []; // array from the variable days. This is because it is a htmlcollection.
 
 	for (let l = 0; l < days.length; l++) dayArr.push(days[l]);
-	console.log(dayArr);
+
 	for (let j = 0; j < dayArr.length - 1; j++) {
 		if (dayArr[j].id != currentDay) {
-			console.log(dayArr[j].id == currentDay);
 			let deleted = dayArr[j].dataset.theDay;
 			let element = document.getElementById(deleted);
 			element?.remove();
