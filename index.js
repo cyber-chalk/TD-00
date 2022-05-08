@@ -81,9 +81,10 @@ function findDay() {
 	let dayArr = []; // array from the variable days. This is because it is a htmlcollection.
 
 	for (let l = 0; l < days.length; l++) dayArr.push(days[l]);
-
-	for (let j = 0; j < dayArr.length; j++) {
+	console.log(dayArr);
+	for (let j = 0; j < dayArr.length - 1; j++) {
 		if (dayArr[j].id != currentDay) {
+			console.log(dayArr[j].id == currentDay);
 			let deleted = dayArr[j].dataset.theDay;
 			let element = document.getElementById(deleted);
 			element?.remove();
