@@ -84,8 +84,9 @@ function findDay() {
 
 	for (let l = 0; l < days.length; l++) dayArr.push(days[l]);
 
-	for (let j = 0; j < dayArr.length - 1; j++) {
-		if (dayArr[j].id != currentDay) {
+	for (let j = 0; j < dayArr.length; j++) {
+		if (dayArr[j].id != currentDay - 1) {
+			//current day -1 then change the id's
 			let deleted = dayArr[j].dataset.theDay;
 			let element = document.getElementById(deleted);
 			element?.remove();
