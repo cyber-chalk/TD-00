@@ -35,14 +35,28 @@ function create(theParent) {
 	let container = theParent.querySelector(".timer-container"); //container appending it into
 
 	let timeClone = time.cloneNode();
-	let nameClone = name.value;
-	let colon = (document.createElement("p").innerText = ":");
+	let nameClone = document.createElement("p");
 	let div = document.createElement("div");
+	let colon = document.createElement("p");
+
+	colon.innerText = ":";
+	nameClone.innerText = name.value;
+	timeClone.id = n++;
+	div.addEventListener("click", function () {
+		div.remove();
+	});
 	console.log(div);
 
-	timeClone.id = n++;
+	if (!name.value) {
+		colon.innerText = "";
+	}
+
 	container.append(div);
 	div.append(nameClone, colon, timeClone);
+}
+
+function removeEl(element) {
+	element.remove();
 }
 
 const military = (switch12) => {
