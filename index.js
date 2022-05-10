@@ -30,14 +30,19 @@ class timer {
 }
 
 function create(theParent) {
-	let origin = theParent.querySelector('input[type="time"]');
+	let time = theParent.querySelector('input[type="time"]');
+	let name = theParent.querySelector('input[type="text"]');
 	let container = theParent.querySelector(".timer-container"); //container appending it into
-	console.log(origin, container, theParent);
-	let nodeClone = origin.cloneNode();
-	nodeClone.id = n++;
-	//nodeClone.value = "";
 
-	container.append(nodeClone);
+	let timeClone = time.cloneNode();
+	let nameClone = name.value;
+	let colon = (document.createElement("p").innerText = ":");
+	let div = document.createElement("div");
+	console.log(div);
+
+	timeClone.id = n++;
+	container.append(div);
+	div.append(nameClone, colon, timeClone);
 }
 
 const military = (switch12) => {
@@ -86,7 +91,9 @@ function findDay() {
 
 	for (let j = 0; j < dayArr.length; j++) {
 		if (dayArr[j].id != currentDay - 1) {
-			//current day -1 then change the id's
+			//The current day Variable is being subtracted because array index's start from zero
+			//The id's of the days in the html start from 0 (monday) and go to 6 (sunday)
+			//this is because it would cause an error and not show certain days.
 			let deleted = dayArr[j].dataset.theDay;
 			let element = document.getElementById(deleted);
 			element?.remove();
@@ -106,16 +113,11 @@ const interval = 1000; // ms
 let expected = Date.now() + interval;
 setTimeout(step, interval);
 function step() {
-	let alt = 1000;
 	dt = Date.now() - expected; // the drift (positive for overshooting)
-
-	if (dt > interval) {
-		alt -= dt; //error handler
-	}
 	// do what needs to be done
 	time(); //might need to move check() back above time()
 	for (let property in checkObj) checkObj[property].checkInput();
 
 	expected += interval;
-	setTimeout(step, Math.max(0, interval - dt, alt)); // take into account drift
+	setTimeout(step, Math.max(0, interval - dt, interval)); // take into account drift
 }
