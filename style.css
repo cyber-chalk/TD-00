@@ -127,7 +127,8 @@ body {
 
 .control,
 .left-right,
-#display-time {
+#display-time,
+.center-inputs {
     /* centers things in the middle */
     display: flex;
     justify-content: center;
@@ -165,6 +166,8 @@ body {
 .btn {
     background-color: #64c247;
     border-style: none;
+    border-radius: 0.3em;
+    /* try to keep border radius at 1em or 0.2em */
     font-family: open sans;
     font-size: 1em;
     font-weight: 600;
@@ -176,10 +179,10 @@ body {
 
 .box {
     /* holds the div for the day */
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     box-shadow: -10px 12px 14px 0px #64c247;
-
+    flex-direction: column;
     font-family: open sans, sans-serif;
     background-color: white;
     margin: 2em;
@@ -189,9 +192,63 @@ body {
 
 }
 
-.span {
+.box:first-child h2 {
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+
+}
+
+.timer-container {
     /* the div for the time input */
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
+
+.timer-container div {
+    background: #64c247;
+    line-height: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.center-inputs button {
+    background-color: #64c247;
+    cursor: pointer;
+
+}
+
+.timer-container div,
+.center-inputs button,
+.center-inputs input[type=text],
+.center-inputs input[type=time],
+.timer-container input[type=time] {
+    padding: 0.25em 0.5em 0.25em 0.5em;
+    margin: 0.25em 0.5em 0.25em 0.5em;
+    box-sizing: border-box;
+    border-style: none;
+    border-radius: 0.3em;
+    color: #42484d;
+    font-family: open sans;
+    font-weight: 600;
+}
+
+.center-inputs input[type=text] {
+    background-color: #64c247;
+
+}
+
+.center-inputs input[type=time] {
+    background-color: #64c247;
+
+}
+
+.timer-container input[type=time] {
+    background-color: white;
+}
+
+.timer-container div p:last-of-type {
+    margin: 0em 0.25em 0em 0.45em;
+}
+
