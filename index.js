@@ -45,7 +45,6 @@ function create(theParent) {
 	div.addEventListener("click", function () {
 		div.remove();
 	});
-	console.log(div);
 
 	if (!name.value) {
 		colon.innerText = "";
@@ -53,10 +52,6 @@ function create(theParent) {
 
 	container.append(div);
 	div.append(nameClone, colon, timeClone);
-}
-
-function removeEl(element) {
-	element.remove();
 }
 
 const military = (switch12) => {
@@ -135,3 +130,4 @@ function step() {
 	expected += interval;
 	setTimeout(step, Math.max(0, interval - dt, interval)); // take into account drift
 }
+
