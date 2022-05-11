@@ -10,8 +10,8 @@ body {
 .nav-container {
     display: flex;
     justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: max;
+    margin-right: max;
 }
 
 .nav {
@@ -73,10 +73,12 @@ body {
 
 #nav-right {
     animation-name: nav-anim-right;
-
 }
 
-
+#nav-right a {
+    color: #42484d !important;
+    text-decoration: none !important;
+}
 
 
 @keyframes nav-anim-left {
@@ -251,4 +253,3 @@ body {
 .timer-container div p:last-of-type {
     margin: 0em 0.25em 0em 0.45em;
 }
-
