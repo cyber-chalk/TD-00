@@ -7,6 +7,37 @@ body {
     background-color: var(--bodycolour);
 }
 
+.setting-container {
+    display: none;
+    /* display: inline; */
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    padding: 2em 1em 2em 1em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 0.2em;
+    box-shadow: 0 0 0px 500em rgb(0, 0, 0, 0.5);
+
+    font-family: open sans;
+    font-size: 2em;
+    line-height: 0px;
+
+}
+
+.setting-container input[type=color] {
+    border-style: none;
+    background-color: inherit;
+    padding: 0px, 0px, 0px, 0px;
+}
+
+
+
+
 .nav-container {
     display: flex;
     justify-content: center;

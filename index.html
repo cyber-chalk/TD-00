@@ -27,7 +27,7 @@
 	<body onload="toggle()">
 		<div class="top">
 			<div class="nav-container">
-				<div id="nav-left">
+				<div id="nav-left" onclick="popupSettings(this)">
 					<p>settings</p>
 					<!-- <span class="material-icons settings settings"> settings </span> -->
 				</div>
@@ -58,6 +58,13 @@
 				<button class="btn" onclick="toggle()">24 hour time</button>
 			</span>
 			<br />
+		</div>
+		<div class="setting-container">
+			<p>Settings</p>
+			<input type="color" id="" />
+			<input type="color" id="" />
+			<input type="color" id="" />
+			<p id="close">close</p>
 		</div>
 		<div>
 			<div id="monday" class="box">

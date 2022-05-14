@@ -54,6 +54,16 @@ function create(theParent) {
 	div.append(nameClone, colon, timeClone);
 }
 
+function popupSettings(object) {
+	let settings = document.getElementsByClassName("setting-container")[0];
+	settings.style.display = "inline";
+
+	let close = document.getElementById("close");
+	close.addEventListener("click", function () {
+		settings.style.display = "none";
+	});
+}
+
 const military = (switch12) => {
 	if (hour >= 13) {
 		x += 12;
@@ -130,4 +140,3 @@ function step() {
 	expected += interval;
 	setTimeout(step, Math.max(0, interval - dt, interval)); // take into account drift
 }
-
