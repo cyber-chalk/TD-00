@@ -1,6 +1,9 @@
 :root {
     --bodycolour: rgb(245, 245, 245);
-    --backgroundcolor: rgb(245, 245, 245);
+    --highlight-color: hsl(106, 50%, 52%);
+    --text-color: #32373b;
+    /* or #2f3337 for color*/
+
 }
 
 body {
@@ -24,6 +27,8 @@ body {
     box-shadow: 0 0 0px 500em rgb(0, 0, 0, 0.5);
 
     font-family: open sans;
+    z-index: 1;
+    color: #42484d;
     font-size: 2em;
     line-height: 0px;
 
@@ -57,7 +62,7 @@ body {
     width: 15vw;
     border-style: solid;
     border-width: 0.4em;
-    border-color: #64c247;
+    border-color: var(--highlight-color);
     border-radius: 0.2em;
 
 }
@@ -71,12 +76,13 @@ body {
 /* : */
 #nav-colon {
     color: #32373b;
+    /*var */
 
 }
 
 /* 00 */
 #nav-numbers {
-    color: #64c247;
+    color: var(--highlight-color);
 
 }
 
@@ -89,7 +95,7 @@ body {
     font-family: open sans, sans-serif;
     display: none;
     border-radius: 0.2em;
-    background-color: #64c247;
+    background-color: var(--highlight-color);
     justify-content: center;
     width: 5vw;
     align-items: center;
@@ -107,7 +113,7 @@ body {
 }
 
 #nav-right a {
-    color: #42484d !important;
+    color: var(--text-color) !important;
     text-decoration: none !important;
 }
 
@@ -172,7 +178,7 @@ body {
 
 /* buttons for changing days */
 #left {
-    color: #32373b;
+    color: var(--text-color);
     cursor: pointer;
     position: relative;
     /* use top and left to ajust */
@@ -192,12 +198,12 @@ body {
 
 #display-time {
     font-family: IBM Plex Mono, sans;
-    color: #42484d;
+    color: var(--text-color);
     font-weight: 400;
 }
 
 .btn {
-    background-color: #64c247;
+    background-color: var(--highlight-color);
     border-style: none;
     border-radius: 0.3em;
     /* try to keep border radius at 1em or 0.2em */
@@ -205,25 +211,27 @@ body {
     font-size: 1em;
     font-weight: 600;
     cursor: pointer;
-    color: #32373b;
+    color: var(--text-color);
     padding: 0.5em 1em 0.5em 1em;
 }
 
 
 .box {
     /* holds the div for the day */
-    /* display: flex; */
+    display: flex;
     justify-content: center;
-    box-shadow: -10px 12px 14px 0px #64c247;
+    box-shadow: -10px 12px 14px 0px var(--highlight-color);
     flex-direction: column;
     font-family: open sans, sans-serif;
-    background-color: white;
+    backdrop-filter: brightness(130%);
     margin: 2em;
     padding: 0.5em 1em 0.5em 1em;
-    color: #2f3337;
+    color: var(--text-color);
     border-radius: 1em;
 
 }
+
+
 
 .box:first-child h2 {
     margin-top: 0;
@@ -240,14 +248,14 @@ body {
 }
 
 .timer-container div {
-    background: #64c247;
+    background: var(--highlight-color);
     line-height: 0px;
     display: flex;
     align-items: center;
 }
 
 .center-inputs button {
-    background-color: #64c247;
+    background-color: var(--highlight-color);
     cursor: pointer;
 
 }
@@ -262,18 +270,18 @@ body {
     box-sizing: border-box;
     border-style: none;
     border-radius: 0.3em;
-    color: #42484d;
+    color: var(--text-color);
     font-family: open sans;
     font-weight: 600;
 }
 
 .center-inputs input[type=text] {
-    background-color: #64c247;
+    background-color: var(--highlight-color);
 
 }
 
 .center-inputs input[type=time] {
-    background-color: #64c247;
+    background-color: var(--highlight-color);
 
 }
 
