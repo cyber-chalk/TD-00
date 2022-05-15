@@ -1,5 +1,9 @@
 # Todo-app 📅
 
+![image](https://user-images.githubusercontent.com/52194915/168426611-5342ed4a-718d-473a-b405-6d3ae2223cf9.png)
+
+
+
 ## description ✏️
 This website intends to set reminders through accurate clocks and timers.
 this is done through the use of javascript and possibly typescript (I do not know typescript,
