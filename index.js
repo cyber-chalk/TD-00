@@ -99,7 +99,7 @@ function findDay() {
 	for (let l = 0; l < days.length; l++) dayArr.push(days[l]);
 
 	for (let j = 0; j < dayArr.length; j++) {
-		if (dayArr[j].id != currentDay - 1) {
+		if (dayArr[j].id != currentDay) {
 			//The current day Variable is being subtracted because array index's start from zero
 			//The id's of the days in the html start from 0 (monday) and go to 6 (sunday)
 			//this is because it would cause an error and not show certain days.
@@ -130,4 +130,3 @@ function step() {
 	expected += interval;
 	setTimeout(step, Math.max(0, interval - dt, interval)); // take into account drift
 }
-
