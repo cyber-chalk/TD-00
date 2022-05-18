@@ -54,6 +54,41 @@ function create(theParent) {
 	div.append(nameClone, colon, timeClone);
 }
 
+function popupSettings(object) {
+	let settings = document.getElementsByClassName("setting-container")[0];
+	settings.style.display = "inline";
+
+	let close = document.getElementById("close");
+	close.addEventListener("click", function () {
+		settings.style.display = "none";
+	});
+
+	let root = document.querySelector(":root");
+	let styles = window.getComputedStyle(root);
+	let inputs = settings.querySelectorAll("input");
+
+	// Highlight
+	let highlight = styles.getPropertyValue("--highlight-color");
+	inputs[0].value = highlight.trim();
+	inputs[0].addEventListener("input", function (event) {
+		root.style.setProperty("--highlight-color", inputs[0].value);
+	});
+
+	// Background
+	let background = styles.getPropertyValue("--bodycolour");
+	inputs[1].value = background.trim();
+	inputs[1].addEventListener("input", function (event) {
+		root.style.setProperty("--bodycolour", inputs[1].value);
+	});
+
+	// Text
+	let text = styles.getPropertyValue("--text-color");
+	inputs[2].value = text.trim();
+	inputs[2].addEventListener("input", function (event) {
+		root.style.setProperty("--text-color", inputs[2].value);
+	});
+}
+
 const military = (switch12) => {
 	if (hour >= 13) {
 		x += 12;
