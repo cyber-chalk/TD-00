@@ -70,14 +70,13 @@ body {
 
 /* TD */
 #nav-text {
-
-    color: hsl(0, 0%, 77%)
+    color: #32373b;
+    mix-blend-mode: difference;
 }
 
 /* : */
 #nav-colon {
     color: #32373b;
-    /*var */
 
 }
 
@@ -86,7 +85,6 @@ body {
     color: var(--highlight-color);
 
 }
-
 
 
 
