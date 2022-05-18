@@ -1,6 +1,7 @@
 :root {
-    --bodycolour: rgb(245, 245, 245);
-    --highlight-color: hsl(106, 50%, 52%);
+    --blank: none;
+    --highlight-color: #64c247;
+    --bodycolour: #f5f5f5;
     --text-color: #32373b;
     /* or #2f3337 for color*/
 
