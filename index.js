@@ -89,6 +89,12 @@ function popupSettings(object) {
 	});
 }
 
+function counter(input) {
+	//this func is needed to call findDay()
+	console.log(input);
+	findDay(input);
+}
+
 const military = (switch12) => {
 	if (hour >= 13) {
 		x += 12;
@@ -127,24 +133,36 @@ function time() {
 }
 time();
 
-function findDay() {
-	var days = document.getElementsByClassName("time-input");
+function findDay(bypass) {
+	//bypass = currentDay;
+	console.log(bypass);
+	let days = document.getElementsByClassName("time-input");
 	let dayArr = []; // array from the variable days. This is because it is a htmlcollection.
-
+	// it is not working because it can't find any days because they are all gone.
 	for (let l = 0; l < days.length; l++) dayArr.push(days[l]);
 
-	for (let j = 0; j < dayArr.length; j++) {
-		if (dayArr[j].id != currentDay) {
-			//The current day Variable is being subtracted because array index's start from zero
-			//The id's of the days in the html start from 0 (monday) and go to 6 (sunday)
-			//this is because it would cause an error and not show certain days.
-			let deleted = dayArr[j].dataset.theDay;
-			let element = document.getElementById(deleted);
-			element?.remove();
+	function forloop(filter) {
+		for (let j = 0; j < dayArr.length; j++) {
+			if (dayArr[j].id != filter) {
+				let deleted = dayArr[j].dataset.theDay;
+				let element = document.getElementById(deleted);
+				element.remove();
+			}
+			//get the Id of the day
+		}
+		if (typeof bypass == "number") {
+			let queary = document.getElementById(bypass);
+			console.log(queary);
 		}
 	}
+	// sorry for ugly nesting
+	if (typeof bypass == "number") {
+		return forloop(bypass);
+	}
+	forloop(currentDay);
 }
-findDay();
+findDay(3);
+//findDay(3);
 
 function check(_hour, _min) {
 	if (_hour <= 11) toggleOff = true; //checks if you can go into 12 hour mode

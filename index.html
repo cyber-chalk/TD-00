@@ -24,6 +24,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
 	</head>
+
 	<body onload="toggle()">
 		<div class="top">
 			<div class="nav-container">
@@ -48,9 +49,21 @@
 
 			<!-- used to switch days -->
 			<span class="left-right">
-				<span class="material-icons" id="left"> chevron_left </span>
+				<span
+					class="material-icons"
+					onclick=" findDay(d.getHours() -1 ); console.log(currentDay, currentDay - 1) "
+					id="left"
+				>
+					chevron_left
+				</span>
 
-				<span class="material-icons" id="right"> chevron_right </span>
+				<span
+					class="material-icons"
+					onclick="findDay(d.getHours() + 1); console.log(currentDay, currentDay + 1)"
+					id="right"
+				>
+					chevron_right
+				</span>
 			</span>
 
 			<h2 id="display-time"></h2>
